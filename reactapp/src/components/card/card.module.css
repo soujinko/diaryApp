@@ -25,3 +25,16 @@
     top: 2%;
     right: 3%;
 }
+.exitButton:active {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    -webkit-transform:scale(1.1); /*  크롬 */
+    -moz-transform:scale(1.1); /* FireFox */
+    -o-transform:scale(1.1); /* Opera */
+    transform:scale(1.1);
+    transition: transform .35s;
+    -o-transition: transform .35s;
+    -moz-transition: transform .35s;
+    -webkit-transition: transform .35s;
+}

@@ -12,19 +12,35 @@ const Home = (props) => {
         try {
             await  http.post('/api/posts', card);
             setCards(cards => {
+                if (!card.id){
+                    card.id = Date.now()
+                }
+                console.log('test',card.id)
                 const updated = {...cards};
                 updated[card.id] = card;
                 return updated
             })
-
         }catch(err) {
             const errMsg = err.response.data['errorMessage']
             alert(errMsg)
-        }
-
-
-        
+        }   
     }
+
+    const onDelete = async(cardId) => {
+        try {
+            console.log("deletecard", cardId)
+            await  http.delete(`/api/posts/${cardId}`, {});
+            setCards(cards => {
+                const updated = {...cards};
+                delete updated[cardId];
+                return updated;
+            })
+        } catch(err) {
+            const errMsg = err.response.data['errorMessage']
+            console.log(errMsg)
+        }
+    }
+
     const getCard = async () => {
         const response = await  http.get('/api/posts', {});
         console.log('response', response.data)
@@ -47,7 +63,7 @@ const Home = (props) => {
 
     return (
         <div>
-            <CardList cards={cards} onAdd={onAdd}/>
+            <CardList cards={cards} onAdd={onAdd} onDelete={onDelete}/>
             <Button className={styles.addBtn} variant="dark">write</Button>{' '}
             <CardForm onAdd={onAdd} />
         </div>

@@ -2,12 +2,15 @@ import React from 'react';
 import { Col, Card,Button } from 'react-bootstrap';
 import styles from './card.module.css'
 
-const Card1 = ({card, onAdd}) => {
-  console.log('card', card)
+const Card1 = ({cardId, card,onDelete}) => {
+  console.log('id', cardId)
+  function handleDelete(){
+    onDelete(cardId)
+  }
     return (
         <Col>
         <Card className={styles.card}>
-          <div className={styles.exitButton}>
+          <div onClick={handleDelete} className={styles.exitButton}>
           <i class="fas fa-times-circle"></i>
           </div>
           {card.imgsrc!=='none' && <Card.Img variant="top" src={card.imgsrc} />}
@@ -18,7 +21,7 @@ const Card1 = ({card, onAdd}) => {
             {card.content}
             </Card.Text>
           </Card.Body>
-          <Button className={styles.btn} variant="dark">login</Button>{' '}
+          <Button className={styles.btn} variant="dark">edit</Button>{' '}
         </Card>
       </Col>
     )
