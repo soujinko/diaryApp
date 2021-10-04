@@ -1,0 +1,27 @@
+.btn {
+    border-radius: 0%;
+}
+.btn:hover {
+    border-radius: 0%;
+    opacity: .9;
+}
+.card {
+    position: relative;
+}
+.card:hover {
+    cursor:pointer;
+    -webkit-transform:scale(1.05); /*  크롬 */
+    -moz-transform:scale(1.05); /* FireFox */
+    -o-transform:scale(1.05); /* Opera */
+    transform:scale(1.05);
+    transition: transform .35s;
+    -o-transition: transform .35s;
+    -moz-transition: transform .35s;
+    -webkit-transition: transform .35s;
+
+}
+.exitButton {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+}

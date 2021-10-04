@@ -27,10 +27,9 @@ const CardForm = ({onAdd}) => {
 const onAddCard = (event) => {
     event.preventDefault();
     const card = {
-        id: Date.now(),
         title: titleRef.current.value || '',
         content: contentRef.current.value || '',
-        imgSrc: file.fileURL || '',
+        imgsrc: file.fileURL || '/images/image1.png',
     }
     formRef.current.reset();
     setFile({fileName:null, fileURL:null})

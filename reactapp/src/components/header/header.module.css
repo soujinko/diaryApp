@@ -1,3 +1,17 @@
 .logo {
     width: 150px;
 }
+.header {
+    height: 8rem;
+    /* background-color: black; */
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.btn {
+    position: absolute;
+    right: 3%;
+    border-radius: 0;
+}

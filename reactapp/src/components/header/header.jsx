@@ -3,9 +3,9 @@ import { Button } from 'react-bootstrap';
 import styles from './header.module.css';
 const Header = (props) => {
     return (
-        <div>
+        <div className={styles.header}>
             <img className={styles.logo} src="/images/diary_logo.png" alt="logo" />
-            <Button variant="dark">login</Button>{' '}
+            <Button className={styles.btn} variant="dark">login</Button>{' '}
         </div>
     )
 }

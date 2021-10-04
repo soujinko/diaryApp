@@ -5,8 +5,9 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const posts = await Post.find({});
+    console.log('posts', posts);
     if (posts.length) {
-      res.status(200).send({ posts });
+      res.status(200).send(posts);
     } else {
       res.status(400).send({ errorMessage: '조회할 정보가 없습니다.' });
     }
@@ -19,7 +20,16 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { title, content, imgsrc } = req.body;
+    const { title, content, imgSrc } = req.body;
+    if (!title || !content) {
+      res.status(400).send({ errorMessage: '내용을 작성하세요' });
+    }
+    let imgsrc;
+    if (!imgSrc) {
+      imgsrc = 'none';
+    } else {
+      imgsrc = imgSrc;
+    }
     console.log('req.body test', req.body);
     const post = await Post.find({ title: title });
     if (post.length > 0) {
